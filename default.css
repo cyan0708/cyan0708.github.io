@@ -1,5 +1,8 @@
 body{background-image:url('background_1.jpg');}
 h1{color:red;}
-li{color:blue;}
+li{color:violet;}
 section{background:lightgreen;}
-p{color:violet;}
+section{border:4px dotted green}
+section{padding:15px}
+section{margin:20px}
+p{color:orange;}
