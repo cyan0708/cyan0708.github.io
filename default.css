@@ -1,8 +1,9 @@
 body{background-image:url('background_1.jpg');}
 h1{color:red;}
 li{color:violet;}
-section{width:33%}
+section{width:100px}
 section{background:lightgreen;}
 section{border:4px dotted green}
 section{padding:5px}
+section{margin:10px 5px}
 p{color:orange;}
