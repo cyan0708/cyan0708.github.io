@@ -1,7 +1,5 @@
 body{background-image:url('background_1.jpg');}
-h1{color:red;}
-li{color:violet;}
-section{width:500px}
+h2{color:red;}
 section{background:lightgreen;}
 section{border:4px dotted green}
 section#box1{margin-top:15px}
