@@ -1,7 +1,7 @@
 body{background-image:url('background_1.jpg');}
-h1{color:red;}
-li{color:violet;}
-section{width:500px}
+h2{color:red;}
+h3{color:orange;}
+li{color:pink;}
 section{background:lightgreen;}
 section{border:4px dotted green}
 section#box1{margin-top:15px}
@@ -10,4 +10,5 @@ section#box2{margin-top:15px}
 section#box2{padding-left:5px}
 section#box3{margin-top:15px}
 section#box3{padding-left:5px}
-p{color:orange;}
+section#box4{margin-top:15px}
+section#box4{padding-left:5px}
