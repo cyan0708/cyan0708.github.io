@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <title>cyan0708のgooglechart</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <style>
+        .cover {
+            background: url(img/bg1.png);
+            background-size: cover;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="cover text-white text-center py-5">
+            <h1 class="display-4 mb-4">Google Chartを使ったデータ分析</h1>
+        </div>
+    </header>
+
+    <main>
+        <div id="target01"></div>
+        <script src="https://www.gstatic.com/charts/loader.js"></script>
+        <script>
+            (function() {
+                'use strict';
+
+                function drawChart() {
+                    var target = document.getElementById('target01');
+                    var data;
+                    var options = {
+                        title: '各年度ごとのトラック生産台数の推移',
+                        width: 600,
+                        height: 300,
+                        isStacked: true
+                    };
+                    var chart = new google.visualization.BarChart(target01);
+                    data = new google.visualization.arrayToDataTable([
+                        ['年度', 'トラック生産台数'],
+                        ['平成7年度', 1702447],
+                        ['平成13年度', 1031790],
+                        ['平成18年度', 1123755],
+                        ['平成23年度', 822008],
+                        ['平成28年度', 821614],
+                    ]);
+
+                    chart.draw(data, options);
+                }
+                google.charts.load('current', {
+                    packages: ['corechart']
+                });
+                google.charts.setOnLoadCallback(drawChart);
+            })();
+
+        </script>
+
+        <div id="target02"></div>
+        <script src="https://www.gstatic.com/charts/loader.js"></script>
+        <script>
+            (function() {
+                'use strict';
+
+                function drawChart() {
+                    var target = document.getElementById('target02');
+                    var data;
+                    var options = {
+                        title: '各年度ごとのバス生産台数の推移',
+                        width: 600,
+                        height: 300,
+                        isStacked: true
+                    };
+                    var chart = new google.visualization.BarChart(target02);
+                    data = new google.visualization.arrayToDataTable([
+                        ['年度', 'バス生産台数'],
+                        ['平成7年度', 50493],
+                        ['平成13年度', 59518],
+                        ['平成18年度', 92881],
+                        ['平成23年度', 111151],
+                        ['平成28年度', 128025],
+                    ]);
+
+                    chart.draw(data, options);
+                }
+                google.charts.load('current', {
+                    packages: ['corechart']
+                });
+                google.charts.setOnLoadCallback(drawChart);
+            })();
+
+        </script>
+        <div id="target03"></div>
+        <script src="https://www.gstatic.com/charts/loader.js"></script>
+        <script>
+            (function() {
+                'use strict';
+
+                function drawChart() {
+                    var target = document.getElementById('target03');
+                    var data;
+                    var options = {
+                        title: '各年度ごとの乗用車生産台数の推移',
+                        width: 600,
+                        height: 300,
+                        isStacked: true
+                    };
+                    var chart = new google.visualization.BarChart(target03);
+                    data = new google.visualization.arrayToDataTable([
+                        ['年度', '乗用車生産台数'],
+                        ['平成7年度', 6613862],
+                        ['平成13年度', 6866510],
+                        ['平成18年度', 8223592],
+                        ['平成23年度', 6626928],
+                        ['平成28年度', 6730714],
+                    ]);
+
+                    chart.draw(data, options);
+                }
+                google.charts.load('current', {
+                    packages: ['corechart']
+                });
+                google.charts.setOnLoadCallback(drawChart);
+            })();
+
+        </script>
+        <div id="target04"></div>
+        <script src="https://www.gstatic.com/charts/loader.js"></script>
+        <script>
+            (function() {
+                'use strict';
+
+                function drawChart() {
+                    var target = document.getElementById('target04');
+                    var data;
+                    var options = {
+                        title: '各年度ごとの軽自動車生産台数の推移',
+                        width: 600,
+                        height: 300,
+                        isStacked: true
+                    };
+                    var chart = new google.visualization.BarChart(target04);
+                    data = new google.visualization.arrayToDataTable([
+                        ['年度', '軽自動車生産台数'],
+                        ['平成7年度', 1732845],
+                        ['平成13年度', 1854291],
+                        ['平成18年度', 2068215],
+                        ['平成23年度', 1712704],
+                        ['平成28年度', 1687091],
+                    ]);
+
+                    chart.draw(data, options);
+                }
+                google.charts.load('current', {
+                    packages: ['corechart']
+                });
+                google.charts.setOnLoadCallback(drawChart);
+            })();
+
+        </script>
+
+        <div>
+            <p>以上の4つのグラフは、およそ5年ごとの各年度の生産台数を車種別にあらわしたものです。</p>
+            <p>バスを除いて、平成18年度から平成23年度にかけて生産台数が減っているのは、平成20年度に起こったリーマンショックによる影響であると推測されます。</p>
+            <p>その中でもバスは、年度を追うごとに生産台数が増しており、その背景には、バスの主な用途たる旅客輸送と密接な関係にある、観光業に対するニーズの高まりがあると予想されます。</p>
+        </div>
+
+        <div id="target05"></div>
+        <script src="https://www.gstatic.com/charts/loader.js"></script>
+        <script>
+            (function() {
+                'use strict';
+
+                function drawChart() {
+                    var target = document.getElementById('target05');
+                    var data;
+                    var options = {
+                        title: '各年度ごとの営業用バスの輸送人数',
+                        width: 600,
+                        height: 300,
+                        isStacked: true
+                    };
+                    var chart = new google.visualization.ColumnChart(target05);
+                    data = new google.visualization.arrayToDataTable([
+                        ['年度', '乗合', '貸切'],
+                        ['平成24年度', 4124997, 312256],
+                        ['平成25年度', 4175831, 329359],
+                        ['平成26年度', 4174821, 325342],
+                        ['平成27年度', 4269867, 295343],
+                        ['平成28年度', 4288516, 294437],
+
+                    ]);
+
+                    chart.draw(data, options);
+                }
+                google.charts.load('current', {
+                    packages: ['corechart']
+                });
+                google.charts.setOnLoadCallback(drawChart);
+            })();
+
+        </script>
+        <div>
+            <p>上のグラフは各年度ごとの営業バスによる輸送人数の推移を表したものです。</p>
+            <p>元の数に対して変化の量が少ないため、分かりづらくなりましたが、全体を通してみると営業バスによる輸送人数は年々微増しているという結果となりました。</p>
+            <p>昔の年度から、バスの生産台数や輸送人数はコンスタントに増加傾向であるため、この先も増加を続けることが予想されますが、何か革新的なものがない限り、これらの数字が大きく伸びることはないかもしれません。</p>
+        </div>
+    </main>
+    <footer class="text-center text-muted py-4">
+        Copyright cyan0708
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+</body>
+
+</html>
