@@ -26,6 +26,8 @@
     </header>
 
     <main>
+       <h4 class="alert alert-info">各年度の車種別生産台数の推移</h4>
+
         <div id="target01"></div>
         <script src="https://www.gstatic.com/charts/loader.js"></script>
         <script>
@@ -163,11 +165,12 @@
             })();
 
         </script>
+        <p>出典:<a href="https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00600330&tstat=000001078083&cycle=8&year=20161&month=0&result_back=1&second=1&second2=1">e-stat 自動車輸送統計調査 付表(２)総括表 自動車保有台数及び生産台数の推移</a></p>
 
         <div>
-            <p>以上の4つのグラフは、およそ5年ごとの各年度の生産台数を車種別にあらわしたものです。</p>
-            <p>バスを除いて、平成18年度から平成23年度にかけて生産台数が減っているのは、平成20年度に起こったリーマンショックによる影響であると推測されます。</p>
-            <p>その中でもバスは、年度を追うごとに生産台数が増しており、その背景には、バスの主な用途たる旅客輸送と密接な関係にある、観光業に対するニーズの高まりがあると予想されます。</p>
+            <p>以上の4つのグラフは、およそ5年ごとの各年度の生産台数を車種別にあらわしたものです。
+            バスを除いて、平成18年度から平成23年度にかけて生産台数が減っているのは、平成20年度に起こったリーマンショックによる影響であると推測されます。
+            その中でもバスは、年度を追うごとに生産台数が増しており、その背景には、バスの主な用途たる旅客輸送と密接な関係にある、観光業に対するニーズの高まりがあると予想されます。</p>
         </div>
 
         <div id="target05"></div>
@@ -205,11 +208,170 @@
             })();
 
         </script>
+        <p>出典:<a href="https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00600330&tstat=000001078083&cycle=8&year=20161&month=0&result_back=1&second=1&second2=1">e-stat 自動車輸送統計調査 営業用バス（乗合・貸切）都道府県別輸送量</a></p>
+
         <div>
-            <p>上のグラフは各年度ごとの営業バスによる輸送人数の推移を表したものです。</p>
-            <p>元の数に対して変化の量が少ないため、分かりづらくなりましたが、全体を通してみると営業バスによる輸送人数は年々微増しているという結果となりました。</p>
-            <p>昔の年度から、バスの生産台数や輸送人数はコンスタントに増加傾向であるため、この先も増加を続けることが予想されますが、何か革新的なものがない限り、これらの数字が大きく伸びることはないかもしれません。</p>
+            <p class="mb-5">上のグラフは各年度ごとの営業バスによる輸送人数の推移を表したものです。
+            元の数に対して変化の量が少ないため、分かりづらくなりましたが、全体を通してみると営業バスによる輸送人数は年々微増しているという結果となりました。
+            昔の年度から、バスの生産台数や輸送人数はコンスタントに増加傾向であるため、この先も増加を続けることが予想されますが、何か革新的なものがない限り、これらの数字が大きく伸びることはないかもしれません。</p>
         </div>
+        
+        <h4 class="alert alert-info">各輸送機関の輸送人数の割合</h4>
+        <p>以下の図は輸送機関別の旅客輸送量を円グラフで表したものです。JRと民鉄を合わせて、旅客輸送量のおよそ8割を鉄道が占めていることがわかります。なお、残り20%を占める自動車の値には、乗用車とバスを合わせた値が入っております。旅客輸送量でみると、鉄道や自動車でほぼ全体を占めることとなり、航空機や旅客戦の輸送量はわずかであることがわかります。</p>
+         <div id="chart_div" style="width:400; height:300"></div>
+
+    <!--Load the AJAX API-->
+    <script src="https://www.google.com/jsapi"></script>
+    <script>
+        // Load the Visualization API and the piechart package.
+        google.load('visualization', '1.0', {
+            'packages': ['corechart'],
+            'language': 'ja'
+        });
+
+        // Set a callback to run when the Google Visualization API is loaded.
+        google.setOnLoadCallback(drawChart);
+
+        // Callback that creates and populates a data table,
+        // instantiates the pie chart, passes in the data and
+        // draws it.
+        function drawChart() {
+
+            // Create the data table.
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', '輸送機関');
+            data.addColumn('number', '利用人数');
+            data.addRows([
+          ['JR', 9132018],
+          ['民鉄', 14981505],
+          ['自動車', 6031303],
+          ['航空機', 96063],
+          ['旅客船', 78148]
+        ]);
+
+            // Set chart options
+            var options = {
+                'title': '平成27年度における輸送機関別旅客輸送量',
+                // 画像の横幅、縦幅を固定したい場合は、以下をコメントアウト
+                'width': 600,
+                'height': 400,
+                // その多のオプション
+                // 'legend': "left",
+                // 'is3D':true,
+            };
+
+            // Instantiate and draw our chart, passing in some options.
+            var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+
+            // The select handler. Call the chart's getSelection() method
+            function selectHandler() {
+                var selectedItem = chart.getSelection()[0];
+                if (selectedItem) {
+                    var topping = data.getValue(selectedItem.row,0);
+                    // data.getValue(selectedItem.row,1) に変更するとどうなるでしょう？
+                    alert('The user selected ' + topping);
+                }
+            }
+
+            // Listen for the 'select' event, and call my function selectHandler() when
+            // the user selects something on the chart.   
+            google.visualization.events.addListener(chart, 'select', selectHandler);
+            chart.draw(data, options);
+        }
+    </script>
+     <p>出典:<a href="https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00600460&bunya_l=10&tstat=000001016696&cycle=8&year=20151&month=0&tclass1=000001067591&result_back=1&result_page=1&second=1&second2=1">e-stat 輸送機関別旅客輸送量(全国輸送量)</a></p>
+    <h4 class="alert alert-info">訪日外国人の都道府県別訪問数</h4>
+        <p>以下の図は平成28年度における、観光・レジャー目的の訪日外国人の都道府県別訪問数(回答数)を表したものです。主要な空港のある都市を中心として、その周辺の都市にも多く観光客が訪れていることがわかります。</p>
+        <p>愛知県やその周辺は中心都市の中では訪問数が少ないですが、中部運輸局では、近年「昇龍道プロジェクト」という日本の自然や歴史を巡るツアーの推進をしており、訪問数も伸びてきているとのことなので、今後に期待ができそうです。</p>
+     <div id="drawChartRuby" style="width: 1200px; padding: 0; margin: 0; border: 0;"></div>
+    <div id="drawChartPHP" style="width: 1200px; padding: 0; margin: 0; border: 0;"></div>
+    <script src="https://www.google.com/jsapi"></script>
+    <script>
+        // http://qiita.com/sadapon2008/items/deeb7cf017bcceecc9b5
+        // を引用し、修正を加えたもの
+        
+        // Load the Visualization API and the piechart package.
+        google.load('visualization', '1.0', {
+            'packages': ['geochart'],
+            'language': 'ja'
+        });
+
+        google.setOnLoadCallback(graphChart);
+
+        function graphChart() {
+            var data_ruby = google.visualization.arrayToDataTable(
+[
+['都道府県', '訪日外国人の訪問数'],
+['北海道', 2351],
+['青森', 113],
+['岩手', 54],
+['宮城', 169],
+['秋田', 59],
+['山形', 59],
+['福島', 39],
+['茨城', 78],
+['栃木', 307],
+['群馬', 101],
+['埼玉', 166],
+['千葉', 8969],
+['東京', 11031],
+['神奈川', 2081],
+['新潟', 123],
+['富山', 249],
+['石川', 593],
+['福井', 28],
+['山梨', 1279],
+['長野', 668],
+['岐阜', 817],
+['静岡', 1144],
+['愛知', 1816],
+['三重', 120],
+['滋賀', 111],
+['京都', 8578],
+['大阪', 11516],
+['兵庫', 1758],
+['奈良', 1946],
+['和歌山', 338],
+['鳥取', 61],
+['島根', 54],
+['岡山', 198],
+['広島', 1029],
+['山口', 389],
+['徳島', 30],
+['香川', 214],
+['愛媛', 81],
+['高知', 41],
+['福岡', 4244],
+['佐賀', 255],
+['長崎', 941],
+['熊本', 571],
+['大分', 1857],
+['宮崎', 72],
+['鹿児島', 219],
+['沖縄', 2309]
+]
+            );
+
+        
+            var option = {
+                region: 'JP',
+                resolution: 'provinces',
+                colorAxis: {
+                    colors: ['white', 'blue', '#00853f', 'black', 'yellow', '#e31b23']
+                },
+                backgroundColor: '#81d4fa',
+                datalessRegionColor: '#f8bbd0',
+                defaultColor: '#f5f5f5'
+            };
+
+            var graph_ruby = new google.visualization.GeoChart(document.getElementById('drawChartRuby'));
+            graph_ruby.draw(data_ruby, option);
+
+            var graph_php = new google.visualization.GeoChart(document.getElementById('drawChartPHP'));
+            graph_php.draw(data_php, option);
+        }
+    </script>
+        <p>出典:<a href="https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00601030&bunya_l=10&tstat=000001079655&cycle=7&year=20160&month=0&result_back=1&result_page=1&second=1&second2=1">e-stat 訪日外国人消費動向調査2016</a></p>
     </main>
     <footer class="text-center text-muted py-4">
         Copyright cyan0708
