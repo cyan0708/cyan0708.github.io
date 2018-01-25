@@ -372,6 +372,117 @@
         }
     </script>
         <p>出典:<a href="https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00601030&bunya_l=10&tstat=000001079655&cycle=7&year=20160&month=0&result_back=1&result_page=1&second=1&second2=1">e-stat 訪日外国人消費動向調査2016</a></p>
+        
+           <h4 class="alert alert-info">訪日外国人の旅行目的</h4>
+        <p>下の図は2016年に訪日外国人が日本の観光で行ったことについて、複数回答を可としてアンケート調査を行ったものです。グラフを見てみると、日本食を食べる、温泉入浴、自然・景勝地観光などといった日本ならではの自然や文化を体感することを目的としている観光客が多いことがわかりました。</p><p>また、映画・アニメゆかりの地への訪問、いわゆる聖地巡礼や日本のポップカルチャーの体験を目的としている人も、全体の割合の中では少なめとはいえ一定数存在することがわかりました。Cool Japanとして漫画やアニメが推進されていってますが、それらの文化が徐々に外国にも浸透しつつあるように感じられました。</p>
+
+        <div id="target06"></div>
+        <script src="https://www.gstatic.com/charts/loader.js"></script>
+        <script>
+            (function() {
+                'use strict';
+
+                function drawChart() {
+                    var target = document.getElementById('target06');
+                    var data;
+                    var options = {
+                        title: '訪日外国人の旅行目的',
+                        width: 1300,
+                        height: 500,
+                        isStacked: true
+                    };
+                    var chart = new google.visualization.ColumnChart(target06);
+                    data = new google.visualization.arrayToDataTable([
+                        ['したこと', '人数'],
+                        ['日本食を食べる', 22423],
+                        ['日本のお酒を飲む', 11465],
+                        ['旅館への宿泊', 7647],
+                        ['温泉入浴', 8982],
+                        ['自然・景勝地観光', 16279],
+                        ['繁華街の街歩き', 17843],
+                        ['ショッピング', 19937],
+                        ['美術館・博物館', 5028],
+                        ['テーマパーク', 5432],
+                        ['スキー・スノーボード', 582],
+                        ['ゴルフ等その他スポーツ', 419],
+                        ['舞台鑑賞', 1026],
+                        ['スポーツ観戦', 364],
+                        ['自然体験ツアー', 1418],
+                        ['四季の体感', 2348],
+                        ['映画・アニメゆかりの地への訪問', 1173],
+                        ['歴史・伝統文化の体験', 5406],
+                        ['日本の日常生活体験', 4724],
+                        ['日本のポップカルチャー', 3685],
+                        ['治療・検診', 137],
+                        ['その他', 29]
+                    ]);
+
+                    chart.draw(data, options);
+                }
+                google.charts.load('current', {
+                    packages: ['corechart']
+                });
+                google.charts.setOnLoadCallback(drawChart);
+            })();
+
+        </script>
+           <p>出典:<a href="https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00601030&bunya_l=10&tstat=000001079655&cycle=7&year=20160&month=0&result_back=1&result_page=1&second=1&second2=1">e-stat 訪日外国人消費動向調査2016</a></p>
+               <h4 class="alert alert-info">訪日外国人の出発前の観光情報源</h4>
+        <p>下の図は2016年において、訪日外国人がどのように情報収集を行ったかについて複数回答を可としてアンケート調査をしたものです。各種HPやSNSなど、主にインターネットで情報収集を行っていることがわかります。グラフの項目内で注目すべきは個人ブログやSNS、親族や知人への聴取が特に高いという点だと思います。これらは、それぞれ個人の体験をもとに描かれたもので、おすすめ観光地の感想だけではなく、観光局や施設の紹介ページに載りきらないような細かいことまで書かれてる場合もあります。こうした実体験をもとにしたライブ感のある情報が安心感や旅行を楽しみにする気持ちを生むのではないかと思います。</p>
+
+        <div id="target07"></div>
+        <script src="https://www.gstatic.com/charts/loader.js"></script>
+        <script>
+            (function() {
+                'use strict';
+
+                function drawChart() {
+                    var target = document.getElementById('target07');
+                    var data;
+                    var options = {
+                        title: '訪日外国人の情報源',
+                        width: 1300,
+                        height: 500,
+                        isStacked: true
+                    };
+                    var chart = new google.visualization.ColumnChart(target07);
+                    data = new google.visualization.arrayToDataTable([
+                        ['日本政府観光局HP', '人数'],
+                        ['日本観光局HP', 3401],
+                        ['旅行会社HP', 3953],
+                        ['宿泊施設HP', 3369],
+                        ['航空会社HP', 2180],
+                        ['地方観光協会HP', 1199],
+                        ['宿泊予約サイト', 3017],
+                        ['口コミサイト', 3011],
+                        ['SNS', 4678],
+                        ['個人のブログ', 10407],
+                        ['動画サイト', 1350],
+                        ['その他インターネット', 3152],
+                        ['日本政府観光局の案内所', 995],
+                        ['旅行会社パンフレット', 2247],
+                        ['旅行ガイドブック', 4951],
+                        ['自国の親族・知人', 4239],
+                        ['日本在住の親族・知人', 2277],
+                        ['旅行の展示会', 221],
+                        ['テレビ番組', 1690],
+                        ['新聞', 378],
+                        ['旅行専門誌', 2253],
+                        ['その他雑誌', 212],
+                        ['その他', 466],
+                        ['特になし', 1763]
+                    ]);
+
+                    chart.draw(data, options);
+                }
+                google.charts.load('current', {
+                    packages: ['corechart']
+                });
+                google.charts.setOnLoadCallback(drawChart);
+            })();
+
+        </script>
+           <p>出典:<a href="https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00601030&bunya_l=10&tstat=000001079655&cycle=7&year=20160&month=0&result_back=1&result_page=1&second=1&second2=1">e-stat 訪日外国人消費動向調査2016</a></p>
     </main>
     <footer class="text-center text-muted py-4">
         Copyright cyan0708
